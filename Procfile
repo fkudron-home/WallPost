@@ -1,1 +1,1 @@
-web: gunicorn PostingWall:app
+web: gunicorn PostingWall.wsgi
