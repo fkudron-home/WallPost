@@ -1,0 +1,25 @@
+
+
+<div style="width:50%; height:100%; background:yellow; float:left;">
+    <form action="{% url 'posting_wall:make_post' %}" method="post">
+        {% csrf_token %}
+        <label for="name_field">Name: </label>
+        <input type="text" name="name_field" id="name_field">
+        <textarea rows="5" cols="51" name="content_field" id="post_text_field" placeholder="Type your post in here..."></textarea>
+        <input type="submit" value="Post!">
+    </form>
+</div>
+<div style="width:50%; height:100%; background:green; float:left;">
+    <hr>
+{% for post in content %}
+    <div style="margin: 0 auto; width: 95%; background: yellow">
+        <div style="background: orange">
+            <b>{{ post.author }}:</b> <div style="float: right">published at: {{ post.pubdate }} </div>
+        </div>
+    <div style="word-wrap:break-word;">
+       {{ post.content }}
+    </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
