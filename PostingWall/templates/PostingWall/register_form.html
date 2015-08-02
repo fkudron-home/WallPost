@@ -1,0 +1,15 @@
+<h1>Register:</h1>
+<form action="{% url 'posting_wall:register' %}" method="post" >
+    {% csrf_token %}
+    <div style="display:block; margin: 5px">
+    <label for="username_field"> Username </label>
+    <input type="text" maxlength="50" name="username_field" id="username_field">
+    </div>
+    <div style="display:block; margin: 5px">
+    <label for="password_field"> Password </label>
+    <input type="text" maxlength="50" name="password_field" id="password_field">
+    </div>
+    <div style="display:block; margin: 5px">
+    <input type="submit" value="Register!">
+    </div>
+</form>

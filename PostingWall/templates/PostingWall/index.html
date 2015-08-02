@@ -1,18 +1,32 @@
 
 
 <div style="width:50%; height:100%; background:yellow; float:left;">
+    <div style="display: block; margin: 5px">
+    <form>
+        {% csrf_token %}
+        <label for="username_field">Username: </label>
+        <input type="text" name="username_field" id="username_field">
+        <label for="password_field">Username: </label>
+        <input type="text" name="password_field" id="password_field">
+        <input type="submit" value="Login!">
+        <a href="{% url 'posting_wall:register_form' %}">or register!</a>
+    </form>
+</div>
+    <div style="clear: both; margin:10px">
     <form action="{% url 'posting_wall:make_post' %}" method="post">
         {% csrf_token %}
         <label for="name_field">Name: </label>
         <input type="text" name="name_field" id="name_field">
-        <textarea rows="5" cols="51" name="content_field" id="post_text_field" placeholder="Type your post in here..."></textarea>
-        <input type="submit" value="Post!">
+        <textarea rows="5" cols="51" name="content_field" id="post_text_field" placeholder="Type your post in here..."
+                  style="display: block; margin: 10px 0"></textarea>
+        <input type="submit" value="Post!" style="display: block; margin: 10px 0">
     </form>
+    </div>
 </div>
 <div style="width:50%; height:100%; background:green; float:left;">
     <hr>
 {% for post in content %}
-    <div style="margin: 0 auto; width: 95%; background: yellow">
+    <div style="margin: 0 auto; width: 95%; background: yellow; display:block">
         <div style="background: orange">
             <b>{{ post.author }}:</b> <div style="float: right">published at: {{ post.pubdate }} </div>
         </div>
