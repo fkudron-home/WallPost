@@ -1,1 +1,1 @@
-web: python PostWall/manage.py runserver "0.0.0.0$PORT"
+web: gunicorn PostWall.wsgi --log-file -
