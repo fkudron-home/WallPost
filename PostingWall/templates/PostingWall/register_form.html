@@ -3,7 +3,14 @@
     {% csrf_token %}
     <div style="display:block; margin: 5px">
     <label for="username_field"> Username </label>
-    <input type="text" maxlength="50" name="username_field" id="username_field">
+    <input type="text" maxlength="50" name="username_field" id="username_field"
+           {% if given_username %}
+            value="{{ given_username }}"
+           {% endif %}
+            >
+        {% if error_text %}
+            <font color="red">{{ error_text }}</font>
+        {% endif %}
     </div>
     <div style="display:block; margin: 5px">
     <label for="password_field"> Password </label>

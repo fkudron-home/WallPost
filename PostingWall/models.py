@@ -12,5 +12,5 @@ class WallPost(models.Model):
 class User(models.Model):
     ''
     join_date = models.DateTimeField('join date')
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)

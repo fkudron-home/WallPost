@@ -5,9 +5,9 @@
     <form>
         {% csrf_token %}
         <label for="username_field">Username: </label>
-        <input type="text" name="username_field" id="username_field">
-        <label for="password_field">Username: </label>
-        <input type="text" name="password_field" id="password_field">
+        <input type="text" name="username_field" id="username_field" maxlength="50">
+        <label for="password_field">Password: </label>
+        <input type="text" name="password_field" id="password_field" maxlength="50">
         <input type="submit" value="Login!">
         <a href="{% url 'posting_wall:register_form' %}">or register!</a>
     </form>
